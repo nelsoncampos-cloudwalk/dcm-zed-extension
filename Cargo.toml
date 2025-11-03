@@ -1,0 +1,16 @@
+[package]
+name = "dcm"
+version = "0.0.1"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "0.7"
+
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+futures = "0.3"
+shellexpand = { version = "3.1", default-features = false, features = ["base-0"] }

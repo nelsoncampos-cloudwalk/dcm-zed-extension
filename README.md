@@ -1,36 +1,53 @@
 # DCM for Zed
 
-DCM (Dart Code Metrics) extension for Zed IDE - provides static analysis for Dart and Flutter projects.
+DCM.dev extension for Zed IDE which provides static analysis for Dart and Flutter projects.
 
 ## Features
 
-- **Static Analysis**: Quickly find quality and consistency problems in your Dart code
-- **Code Metrics**: Analyze code complexity and maintainability
-- **Unused Code Detection**: Find and remove unused code (beta)
-- **Unused Files Detection**: Identify unused files in your project (beta)
-- **Auto-fixes**: Apply quick fixes for common issues
-- **Baseline Support**: Hide known issues using baseline
+Read more about [DCM Feature](https://dcm.dev/features/) on their official website.
 
 ## Installation
 
 ### Prerequisites
 
-1. Install DCM CLI tool:
-   ```bash
-   dart pub global activate dcm
-   ```
-
-2. Ensure DCM is in your PATH or configure the executable path in settings
+1. **Install DCM** — Follow the [installation guide](https://dcm.dev/docs/getting-started/for-developers/installation) for your platform (macOS, Linux, or Windows).
+2. Ensure `dcm` is available in your PATH and verify with `dcm version`.
+3. Have Rust installed if building from source: [rustup](https://rustup.rs/)
 
 ### Building from Source
 
-1. Install Rust via [rustup](https://rustup.rs/)
-2. Clone this repository
-3. Build the extension:
-   ```bash
-   cd dcm-zed-extension
-   just compile
-   ```
+Follow the steps and build the extension: 
+
+```bash
+git clone https://github.com/nelsoncampos-cloudwalk/dcm-zed-extension.git
+cd dcm-zed-extension
+cargo build --release
+```
+
+This produces `extension.wasm` in the repository root, along with `extension.toml` and other build artifacts.
+
+```bash
+.
+├── Cargo.lock
+├── Cargo.toml
+├── Justfile
+├── LICENSE
+├── README.md
+├── extension.toml
+├── extension.wasm
+├── src
+└── target
+```
+
+### Install Into Zed (Recommended: Dev Extension)
+
+The recommended way to install a locally-built extension is via **Install Dev Extension**:
+
+1. Open the Extensions panel in Zed: `Cmd+Shift+X` (macOS) or `Ctrl+Shift+X` (Linux/Windows)
+2. Click the **Install Dev Extension** button (or run `zed: install dev extension` from the command palette)
+3. Select the directory containing the cloned `dcm-zed-extension` folder
+4. Zed will load the extension immediately
+
 ## Configuration
 
 Add to your Zed settings.json:
@@ -47,6 +64,10 @@ Add to your Zed settings.json:
   }
 }
 ```
+
+## DCM Doc
+
+DCM has added a documentation on their official website to support [DCM and Zed integration](https://dcm.dev/docs/ide-integrations/zed/). 
 
 ## Usage
 
